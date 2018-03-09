@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="A Master Student of CASIA">
-<meta property="og:type" content="website">
+<meta name="description" content="学习了PyCon 2015 关于pandas的tutorial，将其中涉及的pandas命令整理如下，方便以后复习、查询 12345678910111213141516171819len(df)       series + value    df[df.c == value]df.head()     series + series2  df[(df.c &amp;gt;= value) &amp;amp; (">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Dilemma&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/03/09/Pandas命令小结/index.html">
 <meta property="og:site_name" content="Dilemma&#39;s blog">
-<meta property="og:description" content="A Master Student of CASIA">
+<meta property="og:description" content="学习了PyCon 2015 关于pandas的tutorial，将其中涉及的pandas命令整理如下，方便以后复习、查询 12345678910111213141516171819len(df)       series + value    df[df.c == value]df.head()     series + series2  df[(df.c &amp;gt;= value) &amp;amp; (">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-09T07:22:50.451Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dilemma&#39;s blog">
-<meta name="twitter:description" content="A Master Student of CASIA">
+<meta name="twitter:description" content="学习了PyCon 2015 关于pandas的tutorial，将其中涉及的pandas命令整理如下，方便以后复习、查询 12345678910111213141516171819len(df)       series + value    df[df.c == value]df.head()     series + series2  df[(df.c &amp;gt;= value) &amp;amp; (">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/09/Pandas命令小结/"/>
 
 
 
 
 
-  <title>Dilemma's blog</title>
+  <title> | Dilemma's blog</title>
   
 
 
@@ -143,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,9 +237,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,9 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/09/Pandas命令小结/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -321,13 +319,9 @@
       
 
       
-        
-          
-            <p>学习了PyCon 2015 关于pandas的tutorial，将其中涉及的pandas命令整理如下，方便以后复习、查询</p>
+        <p>学习了PyCon 2015 关于pandas的tutorial，将其中涉及的pandas命令整理如下，方便以后复习、查询</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">len(df)       series + value    df[df.c == value]</span><br><span class="line">df.head()     series + series2  df[(df.c &gt;= value) &amp; (df.d &lt; value)]</span><br><span class="line">df.tail()     series.notnull()  df[(df.c &lt; value) | (df.d != value)]</span><br><span class="line">df.COLUMN     series.isnull()   df.sort_values(&apos;column&apos;)</span><br><span class="line">df[&apos;COLUMN&apos;]  df.sort_values([&apos;column1&apos;, &apos;column2&apos;])</span><br><span class="line"></span><br><span class="line">s.str.len()        s.value_counts()</span><br><span class="line">s.str.contains()   s.sort_index()    df[[&apos;column1&apos;, &apos;column2&apos;]]</span><br><span class="line">s.str.startswith() s.plot(...)       df.plot(x=&apos;a&apos;, y=&apos;b&apos;, kind=&apos;bar&apos;)</span><br><span class="line"></span><br><span class="line">df.set_index(&apos;a&apos;).sort_index()        df.loc[&apos;value&apos;]</span><br><span class="line">df.set_index([&apos;a&apos;, &apos;b&apos;]).sort_index() df.loc[(&apos;v&apos;,&apos;u&apos;)]</span><br><span class="line">df.groupby(&apos;column&apos;)                  .size() .mean() .min() .max()</span><br><span class="line">df.groupby([&apos;column1&apos;, &apos;column2&apos;])    .agg([&apos;min&apos;, &apos;max&apos;])</span><br><span class="line"></span><br><span class="line">df.unstack()      s.dt.year       df.merge(df2, how=&apos;outer&apos;, ...)</span><br><span class="line">df.stack()        s.dt.month      df.rename(columns=&#123;&apos;a&apos;: &apos;y&apos;, &apos;b&apos;: &apos;z&apos;&#125;)</span><br><span class="line">df.fillna(value)  s.dt.day        pd.concat([df1, df2])</span><br><span class="line">s.fillna(value)   s.dt.dayofweek</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -344,140 +338,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yaguang Song">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dilemma's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/07/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T15:55:33+08:00">
-                2018-03-07
-              </time>
+              <a href="/2018/03/07/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -487,10 +369,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -498,6 +381,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -713,6 +600,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
