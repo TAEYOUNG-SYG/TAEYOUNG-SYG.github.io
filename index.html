@@ -252,6 +252,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/09/阶段小结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yaguang Song">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dilemma's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/09/阶段小结/" itemprop="url">阶段小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-09T16:34:36+08:00">
+                2018-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/09/阶段小结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/09/Kaggle-WSDM-Cup-2018-总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -323,98 +450,18 @@
       
         
           
-            <blockquote>
-<p>本文是对WSDM Cup 2018的总结，文章按照Kaggle比赛的大致流程介绍</p>
-</blockquote>
-<h3 id="数据探索和可视化-EDA"><a href="#数据探索和可视化-EDA" class="headerlink" title="数据探索和可视化(EDA)"></a><strong>数据探索和可视化(EDA)</strong></h3><p>拿到数据后首先就要进行<code>EDA</code>，数据分析对于之后的特征选择尤为重要，通常使用Python的<code>pandas</code>库进行分析，通过一些简单的可视化来理解数据，可视化通常使用<code>matplotlib</code>和<code>seaborn</code>，我针对这个数据集主要进行了如下操作：</p>
-<ul>
-<li>查看类别标签分布，看正负类别是否平衡</li>
-<li>查看数值类特征基本的统计信息，如均值、方差等</li>
-<li>查看训练集和测试集中用户和歌曲的重合度和覆盖度</li>
-<li>查看数据中的缺失值</li>
-<li>分析训练集和测试集的划分方式，以此来决定验证集的构造方式</li>
-<li>绘制特征两两之间的关系</li>
-<li>因为是分类问题，所以将类别用不同的颜色标出，查看每个特征的分布,这可以看出不同feature与类别的关系</li>
-</ul>
-<h4 id="本次数据集包含的特征："><a href="#本次数据集包含的特征：" class="headerlink" title="本次数据集包含的特征："></a><strong>本次数据集包含的特征：</strong></h4><ul>
-<li>数值型特征<ul>
-<li>song_length</li>
-<li>bd(age)</li>
-</ul>
-</li>
-<li>时间型<ul>
-<li>registration_init_time</li>
-<li>expiration_date</li>
-</ul>
-</li>
-<li>类别型<ul>
-<li>source_system_tab</li>
-<li>source_screen_name</li>
-<li>source_type</li>
-<li>genre_ids</li>
-<li>artist_name</li>
-<li>composer</li>
-<li>lyricist</li>
-<li>language</li>
-<li>city</li>
-<li>gender</li>
-<li>registered_via</li>
-</ul>
-</li>
-<li>ID型<ul>
-<li>msno(user_id)</li>
-<li>song_id</li>
-<li>song name</li>
-<li>isrc </li>
-</ul>
-</li>
-</ul>
-<p><code>总结</code>：EDA应该是贯穿整个比赛的，并不是只在初期做，在不断寻找feature的过程中，EDA往往能带来意想不到的收获</p>
-<h3 id="数据预处理和特征提取："><a href="#数据预处理和特征提取：" class="headerlink" title="数据预处理和特征提取："></a><strong>数据预处理和特征提取：</strong></h3><p>经过初步的EDA后，我们对数据有了初步的理解，下面就要对数据进行初步的处理，开始得到的数据是原始和粗糙的，有机器学习基础的人都知道，我们用来模型训练的数据往往是X和Y，X是特征矩阵，Y是对应的标签,下面是基础的<code>数据处理</code>：</p>
-<ul>
-<li>数据分布在几个文件中，我们需要将其<code>拼接</code>起来</li>
-<li>需要对缺失值进行<code>填充</code>，如果缺失严重，我们就要放弃该feature</li>
-<li>需要对类别行特征进行<code>编码</code>，普通的使用LabelEncoder()，稀疏型使用one-hot编码</li>
-<li>如果使用非树模型，如神经网络、逻辑回归等，一定要对数值型数据进行<code>归一化</code></li>
-<li>时间信息进行处理，得到年月日，作为特征加入到数据集中</li>
-</ul>
-<p><code>总结</code>:主要涉及了pandas的使用，自己还不是很熟练，经过以上初步处理后，我们就得到了X和Y，就可以进行下面的模型训练过程</p>
-<h3 id="模型选择和训练："><a href="#模型选择和训练：" class="headerlink" title="模型选择和训练："></a><strong>模型选择和训练：</strong></h3><p>在数据挖掘竞赛界，<code>树模型</code>一直是首选，从早期的随机森林，到现在的GBDT，流行的原因除了树模型不需要考虑特征的归一化问题，它训练快，鲁棒性好，天生自带集成光环。除了树模型，经常使用还有逻辑回归、SVM、神经网络等。有了之前得到的特征和标签，我们就可以进行训练了，早期我使用了<code>xgboost</code>作为基本模型，将X和Y送入模型进行fit，然后用验证部分预测和评测。一般来说，划分训练集和验证集是使用sklearn自带的train_test_split，因为之前都是这样用，所以也没有多想。</p>
-<p>之前因为没有做过比赛，所以对于模型验证不是很在意，但这次比赛让我意识到线下结果和线上结果竟然可以有如此大的差距。每次都是线下结果有了很大的提升，提交上去看到成绩不升反降，一直以为是模型参数问题，重复再重复，没有提升。</p>
-<p>后来某一天偶然看到，论坛有人咨询官方训练集和测试集的划分方法，我才意识到是自己的数据集划分方式出了错，对于一个机器学习问题，大的前提都是独立同分布，只有满足了这个前提，才有之后的一系列方法，本地训练预测选择的是一个分布，但线上测试却是另一个分布，这样不管本地拟合的多么准确，结果都会很差，甚至只会更差。</p>
-<p>意识到了数据划分的问题，但真实的数据分布是什么呢？即官方的数据集是怎么划分的呢？不久后论坛上有人用数据分析的方法找到了这个分布，他通过歌曲的发行时间，发现按照数据集的排列越往后，2017年之后新发行的歌曲所占的比例就越多，而且呈线性关系，所以可以得出结论，正确的数据方式是按照时间划分。结论虽然很简单，但是这个过程却值得学习。</p>
-<p>更换了验证集的划分方式，果然本地和线上恢复了正常，成绩有了小幅的提升。</p>
-<h3 id="特征工程："><a href="#特征工程：" class="headerlink" title="特征工程："></a><strong>特征工程：</strong></h3><p>有了基础模型后，就是漫长的特征工程。之前一直听说数据挖掘比赛就是特征工程竞赛，这次深有体会。特征工程涉及到太多经验性的东西，由于本人经验有限，所以我只进行了一些简单的特征处理：</p>
-<ul>
-<li>根据时间信息，计算得到用户加入会员的时间长短</li>
-<li>因为知道了数据集是按时间排列的，所以把顺序信息加入进来</li>
-<li>之前只是粗略的将类别型特征进行了标号，进过数据分析发现，发现有些类型可以进行细分<ul>
-<li>歌曲类型，每首歌曲可以属于多种类型，将类别数作为特征加入</li>
-<li>同理， 作词、作曲、歌手都做了上面的处理</li>
-<li>歌曲是否有featured</li>
-</ul>
-</li>
-<li>对歌曲长度进行了离散化</li>
-<li>统计了用户听歌数，加入到特征中</li>
-<li>统计了每首听被听过的次数</li>
-<li>其他大大小小的尝试</li>
-</ul>
-<p>特征选择的过程是一个贪心验证过程，加入新的特征，如果分数上去了就增加这个feature，如果分数下降就抛弃，但这样有一个问题，就是对于一些问题只能发现局部最优，如果之前舍弃的feature和之后舍弃的feature联合才能有提升，这样就相当与错过了两个好的feature。总之特征选择博大精深，需要具体问题具体分析。</p>
-<p>得到好的特征后就是调参了，调参没什么好办法，但是又是如此的重要，如果之前特征工程做的不是太离谱，这个过程一般都会提升，我在这个阶段成绩也上升了不少。</p>
-<h3 id="模型集成："><a href="#模型集成：" class="headerlink" title="模型集成："></a><strong>模型集成：</strong></h3><p>模型集成是指将多个基础模型的结果进行组合得到一个联合模型的方法，这种方法往往可以带来不确定的提升，在比赛的后期，成绩提升很难的时候，模型提升就是一个必备的技能。在现在的数据挖掘比赛中，不使用Ensemble就拿到前几名，几乎是不可能的。</p>
-<p>我采用的是最简单的集成方式，bagging，也就是随机森林的理论基础，将多个base模型的结果进行加权，得到最后的结果，很简单但是很有效，这里需要保证，参与集成的base模型要有差异性。<br>模型集成还有多种方法，例如Boosting、Blending等，这里就不介绍了</p>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结：</strong></h3><p>赛后，前两名队伍放出了获胜方案，经过初步的学习，有以下几点体会：</p>
-<ul>
-<li>有必要搭建一个Pipeline，对代码、调试参数、中间数据进行管理</li>
-<li>Feature为王，自己在特征工程上做的工作还是太少，获胜方案花费了大量的篇幅进行了特征处理</li>
-<li>模型集成还有很大的空间</li>
-<li>coding和对一些工具的使用还需要加强，中间有一些很复杂的操作看的很费力</li>
-<li>多尝试，比赛过程中，每天一定要试验若干想法，不能只分析而不行动</li>
-</ul>
-<p>之后还会深入学习获胜方案的代码，并动手实现</p>
-<h3 id="最后："><a href="#最后：" class="headerlink" title="最后："></a><strong>最后：</strong></h3><p>Kaggle is fun!</p>
-
           
+本文是对WSDM Cup 2018的总结，文章按照Kaggle比赛的大致流程介绍
+
+数据探索和可视化(EDA)拿到数据后首先就要进行EDA，数据分析对于之后的特征选择尤为重要，通常使用Python的pandas库进行分析，通过一些简单的可视化来理解数据，可视化通常使用matplotlib和seab
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/09/Kaggle-WSDM-Cup-2018-总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -532,9 +579,16 @@
       
         
           
-            <p>学习了PyCon 2015 关于pandas的tutorial，将其中涉及的pandas命令整理如下，方便以后复习、查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">len(df)       series + value    df[df.c == value]</span><br><span class="line">df.head()     series + series2  df[(df.c &gt;= value) &amp; (df.d &lt; value)]</span><br><span class="line">df.tail()     series.notnull()  df[(df.c &lt; value) | (df.d != value)]</span><br><span class="line">df.COLUMN     series.isnull()   df.sort_values(&apos;column&apos;)</span><br><span class="line">df[&apos;COLUMN&apos;]  df.sort_values([&apos;column1&apos;, &apos;column2&apos;])</span><br><span class="line"></span><br><span class="line">s.str.len()        s.value_counts()</span><br><span class="line">s.str.contains()   s.sort_index()    df[[&apos;column1&apos;, &apos;column2&apos;]]</span><br><span class="line">s.str.startswith() s.plot(...)       df.plot(x=&apos;a&apos;, y=&apos;b&apos;, kind=&apos;bar&apos;)</span><br><span class="line"></span><br><span class="line">df.set_index(&apos;a&apos;).sort_index()        df.loc[&apos;value&apos;]</span><br><span class="line">df.set_index([&apos;a&apos;, &apos;b&apos;]).sort_index() df.loc[(&apos;v&apos;,&apos;u&apos;)]</span><br><span class="line">df.groupby(&apos;column&apos;)                  .size() .mean() .min() .max()</span><br><span class="line">df.groupby([&apos;column1&apos;, &apos;column2&apos;])    .agg([&apos;min&apos;, &apos;max&apos;])</span><br><span class="line"></span><br><span class="line">df.unstack()      s.dt.year       df.merge(df2, how=&apos;outer&apos;, ...)</span><br><span class="line">df.stack()        s.dt.month      df.rename(columns=&#123;&apos;a&apos;: &apos;y&apos;, &apos;b&apos;: &apos;z&apos;&#125;)</span><br><span class="line">df.fillna(value)  s.dt.day        pd.concat([df1, df2])</span><br><span class="line">s.fillna(value)   s.dt.dayofweek</span><br></pre></td></tr></table></figure>
-          
+          学习了PyCon 2015 关于pandas的tutorial，将其中涉及的pandas命令整理如下，方便以后复习、查询
+12345678910111213141516171819len(df)       series + value    df[df.c == value]df.head()  
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/09/Pandas命令小结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -652,9 +706,16 @@
       
         
           
-            <p>第一个博客，用于测试</p>
+          第一个博客，用于测试
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/08/test/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -772,17 +833,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/07/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -862,7 +921,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
